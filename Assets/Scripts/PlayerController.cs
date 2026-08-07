@@ -15,7 +15,11 @@ public class PlayerController : MonoBehaviour
     {
         //Tells me the players horizontal input right now
         float horizontal = Input.GetAxisRaw("Horizontal");
-        transform.Translate(horizontal * moveSpeed * Time.deltaTime, 0, 0);
+        //Tells me the players vertical input right now
+        float vertical = Input.GetAxisRaw("Vertical");
+
+        //Handles the movement of the player
+        transform.Translate(horizontal * moveSpeed * Time.deltaTime, vertical * moveSpeed * Time.deltaTime, 0);
 
        
     }
