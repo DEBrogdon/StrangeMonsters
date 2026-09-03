@@ -17,9 +17,13 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         //Tells me the players vertical input right now
         float vertical = Input.GetAxisRaw("Vertical");
+        // Combines horizontal and vertical input into one movement vector
+        Vector2 movement = new Vector2(horizontal, vertical);
+        //Property of normalize the movement
+        movement = movement.normalized;
 
         //Handles the movement of the player
-        transform.Translate(horizontal * moveSpeed * Time.deltaTime, vertical * moveSpeed * Time.deltaTime, 0);
+        transform.Translate(movement.x * moveSpeed * Time.deltaTime, movement.y * moveSpeed * Time.deltaTime, 0);
 
        
     }
