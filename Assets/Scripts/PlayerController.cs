@@ -39,4 +39,23 @@ public class PlayerController : MonoBehaviour
         //Handles player movement with Unity's physic engine
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
+
+    //Is called when 2d collision begins
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            Debug.Log("I hit the wall!");
+        }
+    }
+
+    //
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            Debug.Log("Player entered the trigger!");
+        }
+    }
+     
 }
